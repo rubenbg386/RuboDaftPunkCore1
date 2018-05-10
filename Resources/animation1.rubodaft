@@ -1,0 +1,7 @@
+#TYPE: tipo de trama, SIMPLE_COLOR, MULTIPLE_COLOR
+#BASE_COLOR: color inicial de la trama, en SIMPLE_COLOR será el color de toda la trama
+#POWER: potencia suministrada a los pixels, si el numero tiene una B al final será el brillo (0-100 fastled 0-255 adafruit)
+#MATRIX_INDEX: es el numero de matriz sobre la que se dibuja la trama (0 frontal, 1 derecha, 2 izquierda)
+#INTERVAL: tiempo durante el que mostrará esa trama, podrá sobreescribirse desde el programa
+#DATA[]; secuencia de valores de apagado/encendido de leds y asignacion de colores
+#TYPE,POWER, BASE_COLOR, MATRIX_INDEX,INTERVAL,DATA[]
