@@ -10,8 +10,7 @@ core/core/main.cpp.o: \
  /Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/cores/arduino/Printable.h \
  /Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/cores/arduino/USBAPI.h \
  /Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/cores/arduino/Arduino.h \
- /Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/variants/eightanaloginputs/pins_arduino.h \
- /Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/variants/eightanaloginputs/../standard/pins_arduino.h
+ /Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/variants/mega/pins_arduino.h
 
 /Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/cores/arduino/Arduino.h:
 
@@ -33,6 +32,4 @@ core/core/main.cpp.o: \
 
 /Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/cores/arduino/Arduino.h:
 
-/Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/variants/eightanaloginputs/pins_arduino.h:
-
-/Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/variants/eightanaloginputs/../standard/pins_arduino.h:
+/Applications/sloeber.app/Contents/Eclipse/arduinoPlugin/packages/arduino/hardware/avr/1.6.21/variants/mega/pins_arduino.h:

@@ -3,7 +3,6 @@
 #include <Adafruit_NeoPixel.h>
 #include <SD.h>
 //#include <SdFat.h>
-#include "IRremote.h"
 
 
 #include <LiquidCrystal_I2C.h>
@@ -132,8 +131,7 @@ public:
 	{
 		for(int i = 0; i < 256; i++){
 			if(Trama[i]==1){
-				//setPixelColor(i, Color(200,200,200));
-				setPixelColor(i, Color1);
+				setPixelColor(i, Color(255,0,0));
 			}else{
 				setPixelColor(i, Color(0,0,0));
 			}
@@ -359,51 +357,67 @@ int loop_index = INITIAL_LOOP_INDEX;
 
 int exitoSD = 0; //0 Fail, 1 Success
 
-int receiver = 11; // Signal Pin of IR receiver to Arduino Digital Pin 11
-IRrecv irrecv(receiver);     // create instance of 'irrecv'
-decode_results results;      // create instance of 'decode_results'
 
-int index_color = 0;
 
 // Initialize everything and prepare to start
 void setup()
 {
-	//Serial.begin(9600);
+	Serial.begin(9600);
 
+	  Serial.print("Initializing card...");
+	  // make sure that the default chip select pin is declared OUTPUT
 
+	  pinMode(53, OUTPUT);
 
-	char filename[] = "anim3.txt";
+	  // see if the card is present
+	  if (!SD.begin(10))
+	  {
+	    Serial.println("Card failed to initialize, or not present");
 
+	    return;
+	  }
+	  Serial.println("card initialized.");
+
+	  // open the file named ourfile.txt
+
+	  File myfile = SD.open("anim2.txt");
+	  Serial.println(myfile.size());
+
+	  // if the file is available, read the file
+	  if (myfile)
+	  {
+	    while (myfile.available())
+	    {
+	      Serial.write(myfile.read());
+	    }
+	    myfile.close();
+	  }
+
+	  /*
 	lcd.begin (16,2);    // Inicializar el display con 16 caraceres 2 lineas
 
 	lcd.setBacklight(HIGH);
 
 	lcd.home ();                   // go home
-	lcd.print("Core1.MEGA v1.01");
+	lcd.print("Core1");
 	lcd.setCursor ( 0, 1 );        // go to the 2nd line
 	lcd.print("Start");
 
 	delay(1000);
 
-	lcd.clear();
-	lcd.setCursor ( 0, 0 );
-	lcd.print("Inicializando IR");
-	irrecv.enableIRIn(); // Iniciamos el receptor de infrarrojos
-
-	delay(1000);
 
 	lcd.clear();
 	lcd.setCursor ( 0, 0 );
 	lcd.print("Inicializando SD");
-	//Serial.println("Inicializando SD");
+	Serial.println("Inicializando SD");
 
-	pinMode(53, OUTPUT);  //make sure that the default chip select pin is set to output
-	digitalWrite(53, HIGH);
+	pinMode(10, OUTPUT);  //make sure that the default chip select pin is set to output
+	digitalWrite(10, HIGH);
 	delay(1000);
 
 	lcd.clear();
 
-	if (!SD.begin(53)) {
+	if (!SD.begin(10)) {
 
 		lcd.setCursor ( 0, 0 );lcd.print("SD Error");
 		exitoSD = 0;
@@ -412,21 +426,48 @@ void setup()
 		exitoSD = 1;
 	}
 
+*/
+
+	/*
+	int intentos = 1;
+	while(!SD.begin(10)){
+		lcd.setCursor ( 0, 0 );lcd.print("SD Error ");lcd.print(intentos);
+		exitoSD = 0;
+		delay(100);
+		if(intentos>10) break;
+		intentos++;
+	}
+	if(intentos<10){
+		lcd.setCursor ( 0, 0 );lcd.print("SD OK");
+		exitoSD = 1;
+	}
+	 */
+
 
 	delay(1000);
 
 	lcd.clear();
-	if (SD.exists(filename)) {
+	if (SD.exists("ANIM2.TXT")) {
 		lcd.setCursor ( 0, 0 );lcd.print("Fichero Existe");
 	} else {
 		lcd.setCursor ( 0, 0 );lcd.print("Fichero NO Existe");
 	}
 	delay(1000);
 
-	myFile = SD.open(filename);//abrimos  el archivo
+	myFile = SD.open("anim2.txt");//abrimos  el archivo
+
+
+	  if (myFile)
+	  {
+	    while (myFile.available())
+	    {
+	    	lcd.setCursor ( 0, 0 );lcd.print(myFile.read());
+	    }
+	    myFile.close();
+	  }
 
 	totalBytes=myFile.size();
-	lcd.clear();lcd.setCursor (0,0);lcd.print("Totalbytes: ");lcd.print(totalBytes);
+	//lcd.clear();lcd.setCursor (0,0);lcd.print("Totalbytes: ");lcd.print(totalBytes);
 	delay(1000);
 
 	/*
@@ -450,16 +491,21 @@ void setup()
 	//MatrizPrincipal.TheaterChase(MatrizPrincipal.Color(255,0,0),MatrizPrincipal.Color(0,0,50),  100);
 	//MatrizPrincipal.RainbowCycle(3);
 	//MatrizPrincipal.ColorWipe(MatrizPrincipal.Color(255,0,0), 55);
-	MatrizPrincipal.Rubo(MatrizPrincipal.Wheel(index_color), 5);
+	MatrizPrincipal.Rubo(MatrizPrincipal.Color(255,0,0), 500);
 
 	//inicializamos la trama a encendido
 	for(int i = 0; i < 256; i++){
-		MatrizPrincipal.Trama[i] = 0;
+		MatrizPrincipal.Trama[i] = 1;
+		/*
+	  if(i%2==0){
+		  MatrizPrincipal.Trama[i] = 1;
+	  }else{
+		  MatrizPrincipal.Trama[i] = 1;
+	  }
+		 */
 	}
-	//MatrizPrincipal.Color1 = MatrizPrincipal.Wheel(200);
-	MatrizPrincipal.Update();
-
-	lcd.clear();lcd.setCursor ( 0, 0 );lcd.print("Entrando en Loop");
+	MatrizPrincipal.Trama[5] = 0;
+	lcd.clear();lcd.setCursor ( 0, 0 );lcd.print("Fin setup");
 	delay(2000);
 }
 
@@ -467,23 +513,17 @@ void setup()
 void loop()
 {
 
-	if (irrecv.decode(&results)) { // have we received an IR signal?
-		//Serial.println(results.value, HEX);
-		lcd.clear();
-		lcd.setCursor ( 0, 0 );lcd.print("IR Signal!");
-		lcd.setCursor ( 0, 1 );lcd.print(results.value);
-		index_color+=10;
-		if(index_color>255){index_color=0;}
-		MatrizPrincipal.Color1 = MatrizPrincipal.Wheel(index_color);
-		irrecv.resume();//volvemos a activar el IR
+	loop_index++;
+	if(loop_index>100){
+		loop_index=INITIAL_LOOP_INDEX;
 	}
-
 
 	if(exitoSD==1){
 		String cadena="";
 		if (myFile) {
+			lcd.clear();lcd.setCursor (0,0);lcd.print("Tratando fichero");
 
-			if(UltimaPocicion>=totalBytes)   UltimaPocicion=0; //si se llega al final del fichero vuelve al principio
+			if(UltimaPocicion>=totalBytes)   UltimaPocicion=0;
 
 			myFile.seek(UltimaPocicion);
 
@@ -493,6 +533,7 @@ void loop()
 
 				char caracter=myFile.read();
 				charIndex++;
+				MatrizPrincipal.Trama[charIndex]=1;
 
 				cadena=cadena+caracter;
 				UltimaPocicion=myFile.position();
@@ -504,13 +545,11 @@ void loop()
 			//---------------------------------------------------
 			//myFile.close(); //cerramos el archivo
 
-			//Serial.print("Cadena Leida:");
-			//Serial.print(cadena);
-			/*
+			Serial.print("Cadena Leida:");
+			Serial.print(cadena);
 			lcd.clear();
 			lcd.setCursor ( 0, 0 );
 			lcd.print(cadena);
-			*/
 			//-----------procesamos la cadena------------
 			int index=0;
 			char c=cadena[index++];
@@ -521,7 +560,7 @@ void loop()
 				c = cadena[index++];
 			}
 
-			for(int i=0;i<100;i++)
+			for(int i=0;i<8;i++)
 			{
 				if(cadena[index+i*2]=='1')
 				{
@@ -539,7 +578,8 @@ void loop()
 		}
 	}
 
-
+	//MatrizPrincipal.Trama[loop_index]=1;
+	//MatrizPrincipal.Trama[loop_index-1]=0;
 	MatrizPrincipal.Update();
 	/*
   // Update the rings.
@@ -579,8 +619,6 @@ void loop()
     }
 
 	 */
-
-
 }
 
 //------------------------------------------------------------
@@ -629,5 +667,5 @@ void StickComplete()
 
 // MatrizPrincipal Completion Callback
 void MatrizPrincipalComplete(){
-	//MatrizPrincipal.Color1 = MatrizPrincipal.Wheel(random(255));
+	MatrizPrincipal.Color1 = MatrizPrincipal.Wheel(random(255));
 }

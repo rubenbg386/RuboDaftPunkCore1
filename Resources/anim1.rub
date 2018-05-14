@@ -5,3 +5,11 @@
 #INTERVAL: tiempo durante el que mostrará esa trama, podrá sobreescribirse desde el programa
 #DATA[]; secuencia de valores de apagado/encendido de leds y asignacion de colores
 #TYPE,POWER, BASE_COLOR, MATRIX_INDEX,INTERVAL,DATA[]
+
+500,0,1,0,0,0,0,0,0,0,0,0,0,0
+500,0,1,0,1,0,0,0,0,0,0,0,0,0
+500,0,1,0,1,0,1,0,0,0,0,0,0,0
+500,0,1,0,1,0,1,0,1,0,0,0,0,0
+500,0,1,0,1,0,1,0,0,0,0,0,0,0
+500,0,1,0,1,0,0,0,0,0,0,0,0,0
+500,0,1,0,0,0,0,0,0,0,0,0,0,0

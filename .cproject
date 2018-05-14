@@ -21,6 +21,15 @@
 								<option id="io.sloeber.compiler.cpp.sketch.option.incpath.1470982149" name="Include Paths (-I)" superClass="io.sloeber.compiler.cpp.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SD}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SD/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SPI}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SPI/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/Wire}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/Wire/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SdFat}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SdFat/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/IRremote}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.cpp.sketch.input.1011685441" name="CPP source files" superClass="io.sloeber.compiler.cpp.sketch.input"/>
 							</tool>
@@ -28,6 +37,15 @@
 								<option id="io.sloeber.compiler.c.sketch.option.incpath.1248804680" name="Include Paths (-I)" superClass="io.sloeber.compiler.c.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SD}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SD/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SPI}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SPI/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/Wire}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/Wire/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SdFat}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SdFat/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/IRremote}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.c.sketch.input.1859408192" name="C Source Files" superClass="io.sloeber.compiler.c.sketch.input"/>
 							</tool>
@@ -35,6 +53,15 @@
 								<option id="io.sloeber.compiler.asm.sketch.option.incpath.180968145" name="Include Paths (-I)" superClass="io.sloeber.compiler.asm.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SD}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SD/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SPI}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SPI/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/Wire}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/Wire/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SdFat}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/SdFat/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/RuboDaftPunkCore1/libraries/IRremote}&quot;"/>
 								</option>
 								<inputType id="io.sloeber.compiler.S.sketch.input.1145842049" name="Assembly source files" superClass="io.sloeber.compiler.S.sketch.input"/>
 							</tool>
