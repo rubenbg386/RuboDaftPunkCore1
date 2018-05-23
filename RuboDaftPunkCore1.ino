@@ -537,6 +537,8 @@ void loop()
 
 
 	MatrizPrincipal.Update();
+
+
 	/*
   // Update the rings.
     Ring1.Update();
