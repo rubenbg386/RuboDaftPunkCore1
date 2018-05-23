@@ -343,7 +343,7 @@ NeoPatterns Ring1(24, 5, NEO_GRB + NEO_KHZ800, &Ring1Complete);
 NeoPatterns Ring2(16, 6, NEO_GRB + NEO_KHZ800, &Ring2Complete);
 NeoPatterns Stick(16, 7, NEO_GRB + NEO_KHZ800, &StickComplete);
  */
-NeoPatterns MatrizPrincipal(100, 3, NEO_GRB + NEO_KHZ800, &MatrizPrincipalComplete);
+NeoPatterns MatrizPrincipal(256, 3, NEO_GRB + NEO_KHZ800, &MatrizPrincipalComplete);
 
 File myFile;
 int UltimaPocicion=0;
@@ -446,10 +446,10 @@ void setup()
 	 */
 
 	MatrizPrincipal.begin();
-	//MatrizPrincipal.Scanner(MatrizPrincipal.Color(255,0,0), 25);
+	//MatrizPrincipal.Scanner(MatrizPrincipal.Color(255,0,0), 5);
 	//MatrizPrincipal.TheaterChase(MatrizPrincipal.Color(255,0,0),MatrizPrincipal.Color(0,0,50),  100);
 	//MatrizPrincipal.RainbowCycle(3);
-	//MatrizPrincipal.ColorWipe(MatrizPrincipal.Color(255,0,0), 55);
+	//MatrizPrincipal.ColorWipe(MatrizPrincipal.Color(255,0,0), 5);
 	MatrizPrincipal.Rubo(MatrizPrincipal.Wheel(index_color), 5);
 
 	//inicializamos la trama a encendido
@@ -466,7 +466,7 @@ void setup()
 // Main loop
 void loop()
 {
-
+	/*
 	if (irrecv.decode(&results)) { // have we received an IR signal?
 		//Serial.println(results.value, HEX);
 		lcd.clear();
@@ -478,7 +478,7 @@ void loop()
 		irrecv.resume();//volvemos a activar el IR
 	}
 
-
+	*/
 	if(exitoSD==1){
 		String cadena="";
 		if (myFile) {
@@ -506,11 +506,7 @@ void loop()
 
 			//Serial.print("Cadena Leida:");
 			//Serial.print(cadena);
-			/*
-			lcd.clear();
-			lcd.setCursor ( 0, 0 );
-			lcd.print(cadena);
-			*/
+
 			//-----------procesamos la cadena------------
 			int index=0;
 			char c=cadena[index++];
@@ -629,5 +625,5 @@ void StickComplete()
 
 // MatrizPrincipal Completion Callback
 void MatrizPrincipalComplete(){
-	//MatrizPrincipal.Color1 = MatrizPrincipal.Wheel(random(255));
+	MatrizPrincipal.Color1 = MatrizPrincipal.Wheel(random(255));
 }
